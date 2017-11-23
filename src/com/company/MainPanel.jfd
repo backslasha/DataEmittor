@@ -1,0 +1,254 @@
+JFDML JFormDesigner: "6.0.2.0.116" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundlePackage": "com.company"
+	"i18n.bundleName": "values"
+	"i18n.keyPrefix": "MainPanel"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, par l {seq t {comp panel1::::994:x, space :::p}, seq t {comp buttonRestorePanel:::p::p, space ::693:x, comp buttonClear:::p::p, space u:::p, comp buttonCopy:::p::p, space :p:31:p}, seq {space :p:18:p, comp label1:::p:99:p, space :p:3:p, comp textField8:::p:755:p, space :::p, comp buttonGenerate:::p::p, space ::27:x}, seq l {comp scrollPane:::p:984:p, space :0:22:x}}}}"
+			"$verticalGroup": "par l {seq l {space :p:24:p, par b {comp textField8::b:p:30:p, comp buttonGenerate::b:p::p, comp label1::b:p:24:p}, space u:::p, comp panel1:::p:70:p, space :::p, comp scrollPane:::p:347:p, space :::p, par b {comp buttonRestorePanel::b:p::p, comp buttonClear::b:p::p, comp buttonCopy::b:p::p}, space ::21:x}}"
+		} ) {
+			name: "frame1"
+			"$sizePolicy": 1
+			"$locationPolicy": 1
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+				"alignment": 0
+			} ) {
+				name: "panel1"
+				"preferredSize": new java.awt.Dimension( 705, 36 )
+				"maximumSize": new java.awt.Dimension( 994, 32767 )
+				"minimumSize": new java.awt.Dimension( 994, 32 )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox1"
+					"model": new javax.swing.DefaultComboBoxModel {
+						selectedItem: "nothing"
+						addElement( "nothing" )
+						addElement( "autoIncreaseBigint( 3 param(s) )" )
+						addElement( "date( 2 param(s) )" )
+						addElement( "generateValues( 2 param(s) )" )
+						addElement( "fillValues( 2 param(s) )" )
+						addElement( "today( 0 param(s) )" )
+						addElement( "dateToLast( 1 param(s) )" )
+						addElement( "dateFuture( 1 param(s) )" )
+						addElement( "bigint( 2 param(s) )" )
+						addElement( "bigint( 1 param(s) )" )
+						addElement( "gender( 0 param(s) )" )
+						addElement( "smallint( 1 param(s) )" )
+						addElement( "smallint( 2 param(s) )" )
+						addElement( "generateChineseName( 0 param(s) )" )
+						addElement( "generateChineseName( 1 param(s) )" )
+					}
+					"preferredSize": new java.awt.Dimension( 135, 26 )
+					"font": &Font0 new java.awt.Font( "文泉驿等宽微米黑", 1, 12 )
+					"foreground": &SwingColor0 new com.jformdesigner.model.SwingColor( "Button.foreground" )
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox2"
+					"model": new javax.swing.DefaultComboBoxModel {
+						selectedItem: "nothing"
+						addElement( "nothing" )
+						addElement( "date( 2 param(s) )" )
+						addElement( "generateValues( 2 param(s) )" )
+						addElement( "fillValues( 2 param(s) )" )
+						addElement( "today( 0 param(s) )" )
+						addElement( "dateToLast( 1 param(s) )" )
+						addElement( "dateFuture( 1 param(s) )" )
+						addElement( "bigint( 2 param(s) )" )
+						addElement( "bigint( 1 param(s) )" )
+						addElement( "gender( 0 param(s) )" )
+						addElement( "smallint( 1 param(s) )" )
+						addElement( "smallint( 2 param(s) )" )
+						addElement( "generateChineseName( 0 param(s) )" )
+						addElement( "generateChineseName( 1 param(s) )" )
+					}
+					"preferredSize": new java.awt.Dimension( 135, 26 )
+					"font": #Font0
+					"foreground": #SwingColor0
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox3"
+					"model": new javax.swing.DefaultComboBoxModel {
+						selectedItem: "nothing"
+						addElement( "nothing" )
+						addElement( "date( 2 param(s) )" )
+						addElement( "generateValues( 2 param(s) )" )
+						addElement( "fillValues( 2 param(s) )" )
+						addElement( "today( 0 param(s) )" )
+						addElement( "dateToLast( 1 param(s) )" )
+						addElement( "dateFuture( 1 param(s) )" )
+						addElement( "bigint( 2 param(s) )" )
+						addElement( "bigint( 1 param(s) )" )
+						addElement( "gender( 0 param(s) )" )
+						addElement( "smallint( 1 param(s) )" )
+						addElement( "smallint( 2 param(s) )" )
+						addElement( "generateChineseName( 0 param(s) )" )
+						addElement( "generateChineseName( 1 param(s) )" )
+					}
+					"preferredSize": new java.awt.Dimension( 135, 26 )
+					"font": #Font0
+					"foreground": #SwingColor0
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox4"
+					"model": new javax.swing.DefaultComboBoxModel {
+						selectedItem: "nothing"
+						addElement( "nothing" )
+						addElement( "date( 2 param(s) )" )
+						addElement( "generateValues( 2 param(s) )" )
+						addElement( "fillValues( 2 param(s) )" )
+						addElement( "today( 0 param(s) )" )
+						addElement( "dateToLast( 1 param(s) )" )
+						addElement( "dateFuture( 1 param(s) )" )
+						addElement( "bigint( 2 param(s) )" )
+						addElement( "bigint( 1 param(s) )" )
+						addElement( "gender( 0 param(s) )" )
+						addElement( "smallint( 1 param(s) )" )
+						addElement( "smallint( 2 param(s) )" )
+						addElement( "generateChineseName( 0 param(s) )" )
+						addElement( "generateChineseName( 1 param(s) )" )
+					}
+					"preferredSize": new java.awt.Dimension( 135, 26 )
+					"font": #Font0
+					"foreground": #SwingColor0
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox5"
+					"model": &DefaultComboBoxModel0 new javax.swing.DefaultComboBoxModel {
+						selectedItem: "nothing"
+						addElement( "nothing" )
+						addElement( "date( 2 param(s) )" )
+						addElement( "generateValues( 2 param(s) )" )
+						addElement( "fillValues( 2 param(s) )" )
+						addElement( "today( 0 param(s) )" )
+						addElement( "dateToLast( 1 param(s) )" )
+						addElement( "dateFuture( 1 param(s) )" )
+						addElement( "bigint( 2 param(s) )" )
+						addElement( "bigint( 1 param(s) )" )
+						addElement( "gender( 0 param(s) )" )
+						addElement( "smallint( 1 param(s) )" )
+						addElement( "smallint( 2 param(s) )" )
+						addElement( "generateChineseName( 0 param(s) )" )
+						addElement( "generateChineseName( 1 param(s) )" )
+					}
+					"preferredSize": &Dimension0 new java.awt.Dimension( 135, 26 )
+					"font": #Font0
+					"foreground": #SwingColor0
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox6"
+					"model": #DefaultComboBoxModel0
+					"preferredSize": #Dimension0
+					"font": #Font0
+					"foreground": #SwingColor0
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox7"
+					"model": #DefaultComboBoxModel0
+					"preferredSize": #Dimension0
+					"font": #Font0
+					"foreground": #SwingColor0
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField1"
+					"preferredSize": &Dimension1 new java.awt.Dimension( 135, 21 )
+					"font": #Font0
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField2"
+					"preferredSize": #Dimension1
+					"font": #Font0
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField3"
+					"preferredSize": #Dimension1
+					"font": #Font0
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField4"
+					"preferredSize": #Dimension1
+					"font": #Font0
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField5"
+					"preferredSize": #Dimension1
+					"font": #Font0
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField6"
+					"preferredSize": #Dimension1
+					"font": #Font0
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField7"
+					"preferredSize": #Dimension1
+					"font": #Font0
+					"foreground": sfield java.awt.Color black
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonGenerate"
+				"text": new FormMessage( null, "MainPanel.buttonGenerate.text" )
+				"autoscrolls": true
+				"focusPainted": false
+				"font": #Font0
+				"foreground": &SwingColor1 new com.jformdesigner.model.SwingColor( "CheckBox.foreground" )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonGenerateActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonGenerateActionPerformed", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "textAreaLogger"
+					"editable": false
+					"font": #Font0
+					"foreground": #SwingColor1
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField8"
+				"font": #Font0
+				"foreground": #SwingColor1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": new FormMessage( null, "MainPanel.label1.text" )
+				"labelFor": new FormReference( "textField8" )
+				"font": #Font0
+				"foreground": #SwingColor1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonClear"
+				"text": new FormMessage( null, "MainPanel.buttonClear.text" )
+				"font": #Font0
+				"foreground": #SwingColor1
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonClearActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonCopy"
+				"text": new FormMessage( null, "MainPanel.buttonCopy.text" )
+				"font": #Font0
+				"foreground": #SwingColor1
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonCopyActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonRestorePanel"
+				"text": new FormMessage( null, "MainPanel.buttonRestorePanel.text" )
+				"font": #Font0
+				"foreground": #SwingColor1
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonRestorePanelActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 85, 0 )
+			"size": new java.awt.Dimension( 1020, 570 )
+		} )
+	}
+}
