@@ -1,4 +1,4 @@
-package yhb.others;
+package yhb.emittor;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -7,7 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static yhb.others.ConstPool.*;
+import static yhb.emittor.ConstPool.*;
 
 public class RandomDataGenerator {
 

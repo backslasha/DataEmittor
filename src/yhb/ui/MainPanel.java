@@ -2,7 +2,9 @@
  * Created by JFormDesigner on Tue Nov 21 23:47:24 CST 2017
  */
 
-package yhb.others;
+package yhb.ui;
+
+import yhb.emittor.RandomDataGenerator;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -131,7 +133,7 @@ public class MainPanel extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        ResourceBundle bundle = ResourceBundle.getBundle("yhb.others.values");
+        ResourceBundle bundle = ResourceBundle.getBundle("yhb.ui.values");
         frame1 = new JFrame();
         panel1 = new JPanel();
         comboBox1 = new JComboBox<>();
