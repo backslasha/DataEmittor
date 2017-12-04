@@ -1,11 +1,16 @@
 package yhb.emittor;
 
+import java.io.File;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Vector;
 
 import static yhb.emittor.ConstPool.*;
 
@@ -80,24 +85,30 @@ public class RandomDataGenerator {
     }
 
     public static void main(String[] args) {
+       printActions();
+    }
+    public static void printActions() {
+        File file = new File("src/yhb/emittor/impl/");
+        if (file.exists() && file.isDirectory()) {
+            System.out.println(file.getAbsolutePath());
+            for (String s : file.list()) {
+                System.out.println(s.substring(0,s.indexOf(".")));
+            }
+        }
+    }
+
+    public static void test(){
         RandomDataGenerator r = new RandomDataGenerator();
         for (int i = 0; i < 10; i++) {
-            String[] strings = r.generateValues(new String[]{"NameCn", "Enum","DateTimeBefore"}, new String[]{"", "大厦比啊,是啊即哦呵,是骄傲时间啊,介绍ij","1999-10-1 18:00,60"});
+            String[] strings = r.generateValues(
+                    new String[]{"NameCn", "Enum", "DateTimeBefore"},
+                    new String[]{"", "大厦比啊,是啊即哦呵,是骄傲时间啊,介绍ij", "1999-10-1 18:00,60"});
             for (String string : strings) {
-                System.out.print(string+" ");
+                System.out.print(string + " ");
             }
             System.out.println();
         }
     }
 
-    public static void printMethods() {
-        Class clazz = RandomDataGenerator.class;
-        Method[] methods = clazz.getDeclaredMethods();
-        String[] methodName = new String[methods.length];
-        for (int i = 0; i < methods.length; i++) {
-            methodName[i] = methods[i].getName() + "( " + methods[i].getParameterCount() + " param(s) )";
-            System.out.println(methodName[i]);
-        }
-    }
 
 }

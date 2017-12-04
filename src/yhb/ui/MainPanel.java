@@ -52,6 +52,7 @@ public class MainPanel extends JPanel {
 
     public MainPanel() {
         initComponents();
+        frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         collectComponents();
     }
 
@@ -88,18 +89,18 @@ public class MainPanel extends JPanel {
         int size = 0;
         for (int i = 0; i < comboBoxes.size(); i++) {
             String content = comboBoxes.get(i).getItemAt(comboBoxes.get(i).getSelectedIndex());
-            if (!"nothing".equals(content)) {
+            if (!"disable".equals(content)) {
                 size++;
             }
         }
 
-        String[] methodNames = new String[size];
-        for (int i = 0; i < methodNames.length; i++) {
-            String itemAt = comboBoxes.get(i).getItemAt(comboBoxes.get(i).getSelectedIndex());
-            methodNames[i] = itemAt.substring(0, itemAt.indexOf("("));
+        String[] actionNames = new String[size];
+        for (int i = 0; i < actionNames.length; i++) {
+            actionNames[i] = comboBoxes.get(i).getItemAt(comboBoxes.get(i).getSelectedIndex());
         }
+
         String[] methodParamsStringArray = new String[size];
-        for (int i = 0; i < methodNames.length; i++) {
+        for (int i = 0; i < actionNames.length; i++) {
             methodParamsStringArray[i] = textFields.get(i).getText();
         }
 
@@ -109,7 +110,7 @@ public class MainPanel extends JPanel {
         textAreaLogger.append(
                 randomDataGenerator.fillValues(
                         rawClause,
-                        randomDataGenerator.generateValues(methodNames, methodParamsStringArray)
+                        randomDataGenerator.generateValues(actionNames, methodParamsStringArray)
                 )
         );
         textAreaLogger.append("\n");
@@ -129,6 +130,10 @@ public class MainPanel extends JPanel {
     private void buttonRestorePanelActionPerformed(ActionEvent e) {
         // TODO add your code here
 
+    }
+
+    private void frame1WindowClosed(WindowEvent e) {
+        // TODO add your code here
     }
 
     private void initComponents() {
@@ -163,6 +168,13 @@ public class MainPanel extends JPanel {
 
         //======== frame1 ========
         {
+            frame1.setTitle("DataEmittor(\u6570\u636e\u5e93\u968f\u673a\u6570\u636e\u751f\u6210\u5668\uff09");
+            frame1.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    frame1WindowClosed(e);
+                }
+            });
             Container frame1ContentPane = frame1.getContentPane();
 
             //======== panel1 ========
@@ -173,23 +185,18 @@ public class MainPanel extends JPanel {
                 panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
 
                 //---- comboBox1 ----
-                comboBox1.setModel(new DefaultComboBoxModel<>(new String[]{
-                        "nothing",
-                        "date( 2 param(s) )",
-                        "generateValues( 2 param(s) )",
-                        "fillValues( 2 param(s) )",
-                        "today( 0 param(s) )",
-                        "dateToLast( 1 param(s) )",
-                        "dateFuture( 1 param(s) )",
-                        "bigint( 1 param(s) )",
-                        "bigint( 2 param(s) )",
-                        "autoIncreaseBigint( 3 param(s) )",
-                        "gender( 0 param(s) )",
-                        "smallint( 1 param(s) )",
-                        "smallint( 2 param(s) )",
-                        "generateChineseName( 1 param(s) )",
-                        "generateChineseName( 0 param(s) )",
-                        "enums( 1 param(s) )"
+                comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "disable",
+                    "AutoIncrementBigInt",
+                    "Enum",
+                    "Today",
+                    "Int",
+                    "Float",
+                    "PrefixLong",
+                    "NameCn",
+                    "GenderOfNameCn",
+                    "DateTimeAfter",
+                    "DateTimeBefore"
                 }));
                 comboBox1.setPreferredSize(new Dimension(135, 26));
                 comboBox1.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
@@ -197,22 +204,17 @@ public class MainPanel extends JPanel {
                 panel1.add(comboBox1);
 
                 //---- comboBox2 ----
-                comboBox2.setModel(new DefaultComboBoxModel<>(new String[]{
-                        "nothing",
-                        "date( 2 param(s) )",
-                        "generateValues( 2 param(s) )",
-                        "fillValues( 2 param(s) )",
-                        "today( 0 param(s) )",
-                        "dateToLast( 1 param(s) )",
-                        "dateFuture( 1 param(s) )",
-                        "bigint( 1 param(s) )",
-                        "bigint( 2 param(s) )",
-                        "gender( 0 param(s) )",
-                        "smallint( 1 param(s) )",
-                        "smallint( 2 param(s) )",
-                        "generateChineseName( 1 param(s) )",
-                        "generateChineseName( 0 param(s) )",
-                        "enums( 1 param(s) )"
+                comboBox2.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "disable",
+                    "Enum",
+                    "Today",
+                    "Int",
+                    "Float",
+                    "PrefixLong",
+                    "NameCn",
+                    "GenderOfNameCn",
+                    "DateTimeAfter",
+                    "DateTimeBefore"
                 }));
                 comboBox2.setPreferredSize(new Dimension(135, 26));
                 comboBox2.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
@@ -220,22 +222,17 @@ public class MainPanel extends JPanel {
                 panel1.add(comboBox2);
 
                 //---- comboBox3 ----
-                comboBox3.setModel(new DefaultComboBoxModel<>(new String[]{
-                        "nothing",
-                        "date( 2 param(s) )",
-                        "generateValues( 2 param(s) )",
-                        "fillValues( 2 param(s) )",
-                        "today( 0 param(s) )",
-                        "dateToLast( 1 param(s) )",
-                        "dateFuture( 1 param(s) )",
-                        "bigint( 1 param(s) )",
-                        "bigint( 2 param(s) )",
-                        "gender( 0 param(s) )",
-                        "smallint( 1 param(s) )",
-                        "smallint( 2 param(s) )",
-                        "generateChineseName( 1 param(s) )",
-                        "generateChineseName( 0 param(s) )",
-                        "enums( 1 param(s) )"
+                comboBox3.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "disable",
+                    "Enum",
+                    "Today",
+                    "Int",
+                    "Float",
+                    "PrefixLong",
+                    "NameCn",
+                    "GenderOfNameCn",
+                    "DateTimeAfter",
+                    "DateTimeBefore"
                 }));
                 comboBox3.setPreferredSize(new Dimension(135, 26));
                 comboBox3.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
@@ -243,22 +240,17 @@ public class MainPanel extends JPanel {
                 panel1.add(comboBox3);
 
                 //---- comboBox4 ----
-                comboBox4.setModel(new DefaultComboBoxModel<>(new String[]{
-                        "nothing",
-                        "date( 2 param(s) )",
-                        "generateValues( 2 param(s) )",
-                        "fillValues( 2 param(s) )",
-                        "today( 0 param(s) )",
-                        "dateToLast( 1 param(s) )",
-                        "dateFuture( 1 param(s) )",
-                        "bigint( 1 param(s) )",
-                        "bigint( 2 param(s) )",
-                        "gender( 0 param(s) )",
-                        "smallint( 1 param(s) )",
-                        "smallint( 2 param(s) )",
-                        "generateChineseName( 1 param(s) )",
-                        "generateChineseName( 0 param(s) )",
-                        "enums( 1 param(s) )"
+                comboBox4.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "disable",
+                    "Enum",
+                    "Today",
+                    "Int",
+                    "Float",
+                    "PrefixLong",
+                    "NameCn",
+                    "GenderOfNameCn",
+                    "DateTimeAfter",
+                    "DateTimeBefore"
                 }));
                 comboBox4.setPreferredSize(new Dimension(135, 26));
                 comboBox4.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
@@ -266,22 +258,17 @@ public class MainPanel extends JPanel {
                 panel1.add(comboBox4);
 
                 //---- comboBox5 ----
-                comboBox5.setModel(new DefaultComboBoxModel<>(new String[]{
-                        "nothing",
-                        "date( 2 param(s) )",
-                        "generateValues( 2 param(s) )",
-                        "fillValues( 2 param(s) )",
-                        "today( 0 param(s) )",
-                        "dateToLast( 1 param(s) )",
-                        "dateFuture( 1 param(s) )",
-                        "bigint( 1 param(s) )",
-                        "bigint( 2 param(s) )",
-                        "gender( 0 param(s) )",
-                        "smallint( 1 param(s) )",
-                        "smallint( 2 param(s) )",
-                        "generateChineseName( 1 param(s) )",
-                        "generateChineseName( 0 param(s) )",
-                        "enums( 1 param(s) )"
+                comboBox5.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "disable",
+                    "Enum",
+                    "Today",
+                    "Int",
+                    "Float",
+                    "PrefixLong",
+                    "NameCn",
+                    "GenderOfNameCn",
+                    "DateTimeAfter",
+                    "DateTimeBefore"
                 }));
                 comboBox5.setPreferredSize(new Dimension(135, 26));
                 comboBox5.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
@@ -289,22 +276,17 @@ public class MainPanel extends JPanel {
                 panel1.add(comboBox5);
 
                 //---- comboBox6 ----
-                comboBox6.setModel(new DefaultComboBoxModel<>(new String[]{
-                        "nothing",
-                        "date( 2 param(s) )",
-                        "generateValues( 2 param(s) )",
-                        "fillValues( 2 param(s) )",
-                        "today( 0 param(s) )",
-                        "dateToLast( 1 param(s) )",
-                        "dateFuture( 1 param(s) )",
-                        "bigint( 1 param(s) )",
-                        "bigint( 2 param(s) )",
-                        "gender( 0 param(s) )",
-                        "smallint( 1 param(s) )",
-                        "smallint( 2 param(s) )",
-                        "generateChineseName( 1 param(s) )",
-                        "generateChineseName( 0 param(s) )",
-                        "enums( 1 param(s) )"
+                comboBox6.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "disable",
+                    "Enum",
+                    "Today",
+                    "Int",
+                    "Float",
+                    "PrefixLong",
+                    "NameCn",
+                    "GenderOfNameCn",
+                    "DateTimeAfter",
+                    "DateTimeBefore"
                 }));
                 comboBox6.setPreferredSize(new Dimension(135, 26));
                 comboBox6.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
@@ -312,22 +294,17 @@ public class MainPanel extends JPanel {
                 panel1.add(comboBox6);
 
                 //---- comboBox7 ----
-                comboBox7.setModel(new DefaultComboBoxModel<>(new String[]{
-                        "nothing",
-                        "date( 2 param(s) )",
-                        "generateValues( 2 param(s) )",
-                        "fillValues( 2 param(s) )",
-                        "today( 0 param(s) )",
-                        "dateToLast( 1 param(s) )",
-                        "dateFuture( 1 param(s) )",
-                        "bigint( 1 param(s) )",
-                        "bigint( 2 param(s) )",
-                        "gender( 0 param(s) )",
-                        "smallint( 1 param(s) )",
-                        "smallint( 2 param(s) )",
-                        "generateChineseName( 1 param(s) )",
-                        "generateChineseName( 0 param(s) )",
-                        "enums( 1 param(s) )"
+                comboBox7.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "disable",
+                    "Enum",
+                    "Today",
+                    "Int",
+                    "Float",
+                    "PrefixLong",
+                    "NameCn",
+                    "GenderOfNameCn",
+                    "DateTimeAfter",
+                    "DateTimeBefore"
                 }));
                 comboBox7.setPreferredSize(new Dimension(135, 26));
                 comboBox7.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
@@ -335,22 +312,17 @@ public class MainPanel extends JPanel {
                 panel1.add(comboBox7);
 
                 //---- comboBox8 ----
-                comboBox8.setModel(new DefaultComboBoxModel<>(new String[]{
-                        "nothing",
-                        "date( 2 param(s) )",
-                        "generateValues( 2 param(s) )",
-                        "fillValues( 2 param(s) )",
-                        "today( 0 param(s) )",
-                        "dateToLast( 1 param(s) )",
-                        "dateFuture( 1 param(s) )",
-                        "bigint( 1 param(s) )",
-                        "bigint( 2 param(s) )",
-                        "gender( 0 param(s) )",
-                        "smallint( 1 param(s) )",
-                        "smallint( 2 param(s) )",
-                        "generateChineseName( 1 param(s) )",
-                        "generateChineseName( 0 param(s) )",
-                        "enums( 1 param(s) )"
+                comboBox8.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "disable",
+                    "Enum",
+                    "Today",
+                    "Int",
+                    "Float",
+                    "PrefixLong",
+                    "NameCn",
+                    "GenderOfNameCn",
+                    "DateTimeAfter",
+                    "DateTimeBefore"
                 }));
                 comboBox8.setPreferredSize(new Dimension(135, 26));
                 comboBox8.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
@@ -413,9 +385,9 @@ public class MainPanel extends JPanel {
             buttonGenerate.setFont(new Font("\u6587\u6cc9\u9a7f\u7b49\u5bbd\u5fae\u7c73\u9ed1", Font.BOLD, 12));
             buttonGenerate.setForeground(UIManager.getColor("CheckBox.foreground"));
             buttonGenerate.addActionListener(e -> {
-                buttonGenerateActionPerformed(e);
-                buttonGenerateActionPerformed(e);
-            });
+			buttonGenerateActionPerformed(e);
+			buttonGenerateActionPerformed(e);
+		});
 
             //======== scrollPane ========
             {
@@ -458,46 +430,45 @@ public class MainPanel extends JPanel {
             GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
             frame1ContentPane.setLayout(frame1ContentPaneLayout);
             frame1ContentPaneLayout.setHorizontalGroup(
-                    frame1ContentPaneLayout.createParallelGroup()
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(frame1ContentPaneLayout.createParallelGroup()
+                            .addComponent(panel1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 1124, Short.MAX_VALUE)
                             .addGroup(frame1ContentPaneLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addGroup(frame1ContentPaneLayout.createParallelGroup()
-                                            .addComponent(panel1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 1124, Short.MAX_VALUE)
-                                            .addGroup(frame1ContentPaneLayout.createSequentialGroup()
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(3, 3, 3)
-                                                    .addComponent(textFieldSql, GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
-                                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(buttonGenerate))
-                                            .addGroup(frame1ContentPaneLayout.createSequentialGroup()
-                                                    .addComponent(buttonRestorePanel)
-                                                    .addGap(388, 388, 388)
-                                                    .addComponent(buttonClear)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(buttonCopy)
-                                                    .addGap(0, 448, Short.MAX_VALUE))
-                                            .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1124, Short.MAX_VALUE))
-                                    .addContainerGap())
+                                .addGap(18, 18, 18)
+                                .addComponent(label1, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)
+                                .addComponent(textFieldSql, GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonGenerate))
+                            .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                                .addComponent(buttonRestorePanel)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 836, Short.MAX_VALUE)
+                                .addComponent(buttonClear)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonCopy))
+                            .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1124, Short.MAX_VALUE))
+                        .addContainerGap())
             );
             frame1ContentPaneLayout.setVerticalGroup(
-                    frame1ContentPaneLayout.createParallelGroup()
-                            .addGroup(frame1ContentPaneLayout.createSequentialGroup()
-                                    .addGap(24, 24, 24)
-                                    .addGroup(frame1ContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(label1, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(buttonGenerate)
-                                            .addComponent(textFieldSql, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 347, GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(frame1ContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(buttonRestorePanel)
-                                            .addComponent(buttonClear)
-                                            .addComponent(buttonCopy))
-                                    .addContainerGap(26, Short.MAX_VALUE))
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(frame1ContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(label1, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonGenerate)
+                            .addComponent(textFieldSql, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panel1, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 347, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(frame1ContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonRestorePanel)
+                            .addComponent(buttonClear)
+                            .addComponent(buttonCopy))
+                        .addContainerGap(26, Short.MAX_VALUE))
             );
             frame1.setSize(1150, 575);
             frame1.setLocationRelativeTo(null);

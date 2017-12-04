@@ -8,13 +8,14 @@ import static yhb.emittor.ConstPool.*;
 import static yhb.emittor.ConstPool.BOY_NAME_ARRAY;
 
 public class NameCn implements IEmitter {
+    public static String gender = null;
+
     @Override
     public String emit(String... params) {
         StringBuilder nameBuilder = new StringBuilder();
         int index = (int) (Math.random() * INITIALS_ARRAY.length);
         nameBuilder.append(INITIALS_ARRAY[index]);
 
-        String gender = null;
         if (params != null && params.length != 0) {
             gender = params[0];
         } else if (Math.random() > 0.5) {

@@ -2,18 +2,20 @@ JFDML JFormDesigner: "6.0.2.0.116" Java: "1.8.0_152-release" encoding: "UTF-8"
 
 new FormModel {
 	"i18n.autoExternalize": true
-	"i18n.bundlePackage": "com.company"
+	"i18n.bundlePackage": "yhb.ui"
 	"i18n.bundleName": "values"
 	"i18n.keyPrefix": "MainPanel"
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, par l {comp panel1::t::1124:x, seq {space :p:18:p, comp label1:::p:99:p, space :p:3:p, comp textFieldSql::::900:x, space :::p, comp buttonGenerate:::p::p}, seq {comp buttonRestorePanel:::p::p, space :p:388:p, comp buttonClear:::p::p, space s:::p, comp buttonCopy:::p::p, space :0:448:x}, comp scrollPane::l::1124:x}, space :::p}}"
+			"$horizontalGroup": "par l {seq {space :::p, par l {comp panel1::t::1124:x, seq {space :p:18:p, comp label1:::p:99:p, space :p:3:p, comp textFieldSql::::900:x, space :::p, comp buttonGenerate:::p::p}, seq {comp buttonRestorePanel:::p::p, space ::836:x, comp buttonClear:::p::p, space s:::p, comp buttonCopy:::p::p}, comp scrollPane::l::1124:x}, space :::p}}"
 			"$verticalGroup": "par l {seq l {space :p:24:p, par b {comp label1::b:p:24:p, comp buttonGenerate::b:p::p, comp textFieldSql::b:p:30:p}, space u:::p, comp panel1:::p:70:p, space :::p, comp scrollPane:::p:347:p, space :::p, par b {comp buttonRestorePanel::b:p::p, comp buttonClear::b:p::p, comp buttonCopy::b:p::p}, space ::26:x}}"
 		} ) {
 			name: "frame1"
 			"$sizePolicy": 1
 			"$locationPolicy": 1
+			"title": "DataEmittor(数据库随机数据生成器）"
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosed", "frame1WindowClosed", true ) )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
 				"alignment": 0
 			} ) {
@@ -24,23 +26,18 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox1"
 					"model": new javax.swing.DefaultComboBoxModel {
-						selectedItem: "nothing"
-						addElement( "nothing" )
-						addElement( "date( 2 param(s) )" )
-						addElement( "generateValues( 2 param(s) )" )
-						addElement( "fillValues( 2 param(s) )" )
-						addElement( "today( 0 param(s) )" )
-						addElement( "dateToLast( 1 param(s) )" )
-						addElement( "dateFuture( 1 param(s) )" )
-						addElement( "bigint( 1 param(s) )" )
-						addElement( "bigint( 2 param(s) )" )
-						addElement( "autoIncreaseBigint( 3 param(s) )" )
-						addElement( "gender( 0 param(s) )" )
-						addElement( "smallint( 1 param(s) )" )
-						addElement( "smallint( 2 param(s) )" )
-						addElement( "generateChineseName( 1 param(s) )" )
-						addElement( "generateChineseName( 0 param(s) )" )
-						addElement( "enums( 1 param(s) )" )
+						selectedItem: "disable"
+						addElement( "disable" )
+						addElement( "AutoIncrementBigInt" )
+						addElement( "Enum" )
+						addElement( "Today" )
+						addElement( "Int" )
+						addElement( "Float" )
+						addElement( "PrefixLong" )
+						addElement( "NameCn" )
+						addElement( "GenderOfNameCn" )
+						addElement( "DateTimeAfter" )
+						addElement( "DateTimeBefore" )
 					}
 					"preferredSize": new java.awt.Dimension( 135, 26 )
 					"font": &Font0 new java.awt.Font( "文泉驿等宽微米黑", 1, 12 )
@@ -49,22 +46,17 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox2"
 					"model": new javax.swing.DefaultComboBoxModel {
-						selectedItem: "nothing"
-						addElement( "nothing" )
-						addElement( "date( 2 param(s) )" )
-						addElement( "generateValues( 2 param(s) )" )
-						addElement( "fillValues( 2 param(s) )" )
-						addElement( "today( 0 param(s) )" )
-						addElement( "dateToLast( 1 param(s) )" )
-						addElement( "dateFuture( 1 param(s) )" )
-						addElement( "bigint( 1 param(s) )" )
-						addElement( "bigint( 2 param(s) )" )
-						addElement( "gender( 0 param(s) )" )
-						addElement( "smallint( 1 param(s) )" )
-						addElement( "smallint( 2 param(s) )" )
-						addElement( "generateChineseName( 1 param(s) )" )
-						addElement( "generateChineseName( 0 param(s) )" )
-						addElement( "enums( 1 param(s) )" )
+						selectedItem: "disable"
+						addElement( "disable" )
+						addElement( "Enum" )
+						addElement( "Today" )
+						addElement( "Int" )
+						addElement( "Float" )
+						addElement( "PrefixLong" )
+						addElement( "NameCn" )
+						addElement( "GenderOfNameCn" )
+						addElement( "DateTimeAfter" )
+						addElement( "DateTimeBefore" )
 					}
 					"preferredSize": new java.awt.Dimension( 135, 26 )
 					"font": #Font0
@@ -73,22 +65,17 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox3"
 					"model": new javax.swing.DefaultComboBoxModel {
-						selectedItem: "nothing"
-						addElement( "nothing" )
-						addElement( "date( 2 param(s) )" )
-						addElement( "generateValues( 2 param(s) )" )
-						addElement( "fillValues( 2 param(s) )" )
-						addElement( "today( 0 param(s) )" )
-						addElement( "dateToLast( 1 param(s) )" )
-						addElement( "dateFuture( 1 param(s) )" )
-						addElement( "bigint( 1 param(s) )" )
-						addElement( "bigint( 2 param(s) )" )
-						addElement( "gender( 0 param(s) )" )
-						addElement( "smallint( 1 param(s) )" )
-						addElement( "smallint( 2 param(s) )" )
-						addElement( "generateChineseName( 1 param(s) )" )
-						addElement( "generateChineseName( 0 param(s) )" )
-						addElement( "enums( 1 param(s) )" )
+						selectedItem: "disable"
+						addElement( "disable" )
+						addElement( "Enum" )
+						addElement( "Today" )
+						addElement( "Int" )
+						addElement( "Float" )
+						addElement( "PrefixLong" )
+						addElement( "NameCn" )
+						addElement( "GenderOfNameCn" )
+						addElement( "DateTimeAfter" )
+						addElement( "DateTimeBefore" )
 					}
 					"preferredSize": new java.awt.Dimension( 135, 26 )
 					"font": #Font0
@@ -97,22 +84,17 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox4"
 					"model": new javax.swing.DefaultComboBoxModel {
-						selectedItem: "nothing"
-						addElement( "nothing" )
-						addElement( "date( 2 param(s) )" )
-						addElement( "generateValues( 2 param(s) )" )
-						addElement( "fillValues( 2 param(s) )" )
-						addElement( "today( 0 param(s) )" )
-						addElement( "dateToLast( 1 param(s) )" )
-						addElement( "dateFuture( 1 param(s) )" )
-						addElement( "bigint( 1 param(s) )" )
-						addElement( "bigint( 2 param(s) )" )
-						addElement( "gender( 0 param(s) )" )
-						addElement( "smallint( 1 param(s) )" )
-						addElement( "smallint( 2 param(s) )" )
-						addElement( "generateChineseName( 1 param(s) )" )
-						addElement( "generateChineseName( 0 param(s) )" )
-						addElement( "enums( 1 param(s) )" )
+						selectedItem: "disable"
+						addElement( "disable" )
+						addElement( "Enum" )
+						addElement( "Today" )
+						addElement( "Int" )
+						addElement( "Float" )
+						addElement( "PrefixLong" )
+						addElement( "NameCn" )
+						addElement( "GenderOfNameCn" )
+						addElement( "DateTimeAfter" )
+						addElement( "DateTimeBefore" )
 					}
 					"preferredSize": new java.awt.Dimension( 135, 26 )
 					"font": #Font0
@@ -121,22 +103,17 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox5"
 					"model": new javax.swing.DefaultComboBoxModel {
-						selectedItem: "nothing"
-						addElement( "nothing" )
-						addElement( "date( 2 param(s) )" )
-						addElement( "generateValues( 2 param(s) )" )
-						addElement( "fillValues( 2 param(s) )" )
-						addElement( "today( 0 param(s) )" )
-						addElement( "dateToLast( 1 param(s) )" )
-						addElement( "dateFuture( 1 param(s) )" )
-						addElement( "bigint( 1 param(s) )" )
-						addElement( "bigint( 2 param(s) )" )
-						addElement( "gender( 0 param(s) )" )
-						addElement( "smallint( 1 param(s) )" )
-						addElement( "smallint( 2 param(s) )" )
-						addElement( "generateChineseName( 1 param(s) )" )
-						addElement( "generateChineseName( 0 param(s) )" )
-						addElement( "enums( 1 param(s) )" )
+						selectedItem: "disable"
+						addElement( "disable" )
+						addElement( "Enum" )
+						addElement( "Today" )
+						addElement( "Int" )
+						addElement( "Float" )
+						addElement( "PrefixLong" )
+						addElement( "NameCn" )
+						addElement( "GenderOfNameCn" )
+						addElement( "DateTimeAfter" )
+						addElement( "DateTimeBefore" )
 					}
 					"preferredSize": &Dimension0 new java.awt.Dimension( 135, 26 )
 					"font": #Font0
@@ -145,22 +122,17 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox6"
 					"model": new javax.swing.DefaultComboBoxModel {
-						selectedItem: "nothing"
-						addElement( "nothing" )
-						addElement( "date( 2 param(s) )" )
-						addElement( "generateValues( 2 param(s) )" )
-						addElement( "fillValues( 2 param(s) )" )
-						addElement( "today( 0 param(s) )" )
-						addElement( "dateToLast( 1 param(s) )" )
-						addElement( "dateFuture( 1 param(s) )" )
-						addElement( "bigint( 1 param(s) )" )
-						addElement( "bigint( 2 param(s) )" )
-						addElement( "gender( 0 param(s) )" )
-						addElement( "smallint( 1 param(s) )" )
-						addElement( "smallint( 2 param(s) )" )
-						addElement( "generateChineseName( 1 param(s) )" )
-						addElement( "generateChineseName( 0 param(s) )" )
-						addElement( "enums( 1 param(s) )" )
+						selectedItem: "disable"
+						addElement( "disable" )
+						addElement( "Enum" )
+						addElement( "Today" )
+						addElement( "Int" )
+						addElement( "Float" )
+						addElement( "PrefixLong" )
+						addElement( "NameCn" )
+						addElement( "GenderOfNameCn" )
+						addElement( "DateTimeAfter" )
+						addElement( "DateTimeBefore" )
 					}
 					"preferredSize": #Dimension0
 					"font": #Font0
@@ -169,22 +141,17 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox7"
 					"model": new javax.swing.DefaultComboBoxModel {
-						selectedItem: "nothing"
-						addElement( "nothing" )
-						addElement( "date( 2 param(s) )" )
-						addElement( "generateValues( 2 param(s) )" )
-						addElement( "fillValues( 2 param(s) )" )
-						addElement( "today( 0 param(s) )" )
-						addElement( "dateToLast( 1 param(s) )" )
-						addElement( "dateFuture( 1 param(s) )" )
-						addElement( "bigint( 1 param(s) )" )
-						addElement( "bigint( 2 param(s) )" )
-						addElement( "gender( 0 param(s) )" )
-						addElement( "smallint( 1 param(s) )" )
-						addElement( "smallint( 2 param(s) )" )
-						addElement( "generateChineseName( 1 param(s) )" )
-						addElement( "generateChineseName( 0 param(s) )" )
-						addElement( "enums( 1 param(s) )" )
+						selectedItem: "disable"
+						addElement( "disable" )
+						addElement( "Enum" )
+						addElement( "Today" )
+						addElement( "Int" )
+						addElement( "Float" )
+						addElement( "PrefixLong" )
+						addElement( "NameCn" )
+						addElement( "GenderOfNameCn" )
+						addElement( "DateTimeAfter" )
+						addElement( "DateTimeBefore" )
 					}
 					"preferredSize": #Dimension0
 					"font": #Font0
@@ -193,22 +160,17 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox8"
 					"model": new javax.swing.DefaultComboBoxModel {
-						selectedItem: "nothing"
-						addElement( "nothing" )
-						addElement( "date( 2 param(s) )" )
-						addElement( "generateValues( 2 param(s) )" )
-						addElement( "fillValues( 2 param(s) )" )
-						addElement( "today( 0 param(s) )" )
-						addElement( "dateToLast( 1 param(s) )" )
-						addElement( "dateFuture( 1 param(s) )" )
-						addElement( "bigint( 1 param(s) )" )
-						addElement( "bigint( 2 param(s) )" )
-						addElement( "gender( 0 param(s) )" )
-						addElement( "smallint( 1 param(s) )" )
-						addElement( "smallint( 2 param(s) )" )
-						addElement( "generateChineseName( 1 param(s) )" )
-						addElement( "generateChineseName( 0 param(s) )" )
-						addElement( "enums( 1 param(s) )" )
+						selectedItem: "disable"
+						addElement( "disable" )
+						addElement( "Enum" )
+						addElement( "Today" )
+						addElement( "Int" )
+						addElement( "Float" )
+						addElement( "PrefixLong" )
+						addElement( "NameCn" )
+						addElement( "GenderOfNameCn" )
+						addElement( "DateTimeAfter" )
+						addElement( "DateTimeBefore" )
 					}
 					"preferredSize": #Dimension0
 					"font": #Font0
