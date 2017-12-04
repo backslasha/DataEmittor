@@ -1,4 +1,4 @@
-package com.company;
+package yhb.others;
 
 public class ConstPool {
 

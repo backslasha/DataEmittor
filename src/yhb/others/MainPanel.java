@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Tue Nov 21 23:47:24 CST 2017
  */
 
-package com.company;
+package yhb.others;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -10,8 +10,6 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
-
-import static com.company.RandomDataGenerator.*;
 
 /**
  * @author unknown
@@ -133,7 +131,7 @@ public class MainPanel extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        ResourceBundle bundle = ResourceBundle.getBundle("com.company.values");
+        ResourceBundle bundle = ResourceBundle.getBundle("yhb.others.values");
         frame1 = new JFrame();
         panel1 = new JPanel();
         comboBox1 = new JComboBox<>();

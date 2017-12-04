@@ -1,4 +1,4 @@
-package com.company;
+package yhb.others;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -7,7 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static com.company.ConstPool.*;
+import static yhb.others.ConstPool.*;
 
 public class RandomDataGenerator {
 
